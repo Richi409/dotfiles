@@ -9,13 +9,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $Alt Mod1
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 12
-#font pango:Hack Bold 16
+font pango:monospace 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -54,28 +52,28 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $Alt+h focus left
-bindsym $Alt+j focus down
-bindsym $Alt+k focus up
-bindsym $Alt+l focus right
+bindsym Control+h focus left
+bindsym Control+j focus down
+bindsym Control+k focus up
+bindsym Control+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $Alt+Left focus left
-bindsym $Alt+Down focus down
-bindsym $Alt+Up focus up
-bindsym $Alt+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
-bindsym $Alt+Shift+h move left
-bindsym $Alt+Shift+j move down
-bindsym $Alt+Shift+k move up
-bindsym $Alt+Shift+l move right
+bindsym Control+Shift+h move left
+bindsym Control+Shift+j move down
+bindsym Control+Shift+k move up
+bindsym Control+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $Alt+Shift+Left move left
-bindsym $Alt+Shift+Down move down
-bindsym $Alt+Shift+Up move up
-bindsym $Alt+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -176,11 +174,10 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#        position top
+bar {
         #status_command i3blocks
-#        status_command i3status
-#}
+        status_command i3status
+}
 
 # i3-gaps
 gaps inner 12
@@ -247,7 +244,6 @@ bindsym Ctrl+$mod+Print exec --no-startup-id maim --format=png --window $(xdotoo
 bindsym $mod+Shift+s exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
 
 ## autostart
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec nitrogen --restore
 exec --no-startup-id lxpolkit &
 #exec --no-startup-id picom -b
