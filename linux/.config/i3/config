@@ -226,6 +226,7 @@ exec --no-startup-id lxpolkit &
 # screen before suspend. Use loginctl lock-session to lock your screen.
 
 exec --no-startup-id light-locker --lock-on-lid
+exec --no-startup-id $HOME/.config/picom/toggle_picom.sh reload
 
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
