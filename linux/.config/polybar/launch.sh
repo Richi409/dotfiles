@@ -19,7 +19,7 @@ if [ $amount_of_displays -gt 1 ];
 then
     for m in $(polybar --list-monitors | cut -d":" -f1);
     do
-        if [ "${m}" -eq "HDMI-1" ];
+        if [ "${m}" == "HDMI-1" ];
         then
             MONITOR=$m polybar --reload main 2>&1 & 
         else
