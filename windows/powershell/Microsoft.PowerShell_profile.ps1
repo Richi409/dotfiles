@@ -1,23 +1,28 @@
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
- 
+
 # if ($host.Name -eq 'ConsoleHost')
 # {
 #     Import-Module PSReadLine
 #     echo 3
 # }
-Set-PSReadLineOption -PredictionSource History
+#Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -EditMode Windows
 
 
 #oh-my-posh --init --shell pwsh --config C:\Users\richa\AppData\Local\Programs\oh-my-posh\themes\powerlevel10k_rainbow.omp.json | Invoke-Expression
 #Invoke-Expression (&starship init powershell)
+
+#load starship prompt
+Invoke-Expression (&starship init powershell)
+
 Import-Module -Name Terminal-Icons
 
 # function sudo {
 #     Start-Process @args -verb RunAs
 # }
 
+Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
 
 Set-Alias -Name "ss" -Value "Select-String"
 Set-Alias -Name "se" -Value "Search-Everything"
