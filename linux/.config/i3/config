@@ -12,6 +12,7 @@
 # include files
 include $HOME/.config/i3/workspaces.conf
 include $HOME/.config/i3/screenshots.conf
+include $HOME/.config/i3/colors.conf
 
 # set variables for multiple monitors
  set $screen_builtin eDP-1
@@ -48,6 +49,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +10% # increase screen bright
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%- # decrease screen brightness
 
 # Media player controls
+# on debian playerctl needs to be installed
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -216,8 +218,8 @@ mode "$mode_gaps_outer"{
 }
 
 ## border
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 3
+default_floating_border pixel 3
 
 ## keybindings
 bindsym $mod+l exec --no-startup-id dm-tool lock
