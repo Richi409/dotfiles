@@ -29,7 +29,7 @@ return {
                 'rust_analyzer',
                 'lua_ls',
                 'jdtls',
-                'tsserver',
+                -- 'tsserver',
                 'eslint',
                 'clangd'
             },
