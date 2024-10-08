@@ -16,7 +16,7 @@ include $HOME/.config/i3/colors.conf
 
 # set variables for multiple monitors
  set $screen_builtin eDP-1
- set $screen_HDMI HDMI-1
+ # set $screen_HDMI HDMI-1
 
 set $Alt Mod1
 set $mod Mod4
@@ -225,9 +225,16 @@ default_floating_border pixel 3
 bindsym $mod+l exec --no-startup-id dm-tool lock
 #bindsym $mod+l exec i3lock -n
 
-
+# launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+## Scaling Resolution for builtin monitor
+# exec --no-startup-id xrandr --output eDP-1 --size 2880x1800@120.00 --scale 0.75x0.75
+
+# restore Background Image
 exec nitrogen --restore
+
+# start lxpolkit
 exec --no-startup-id lxpolkit &
 #exec --no-startup-id picom -b
 #exec --no-startup-id nextcloud
@@ -240,12 +247,11 @@ exec --no-startup-id lxpolkit &
 # screen before suspend. Use loginctl lock-session to lock your screen.
 
 exec --no-startup-id light-locker --lock-on-lid
-exec --no-startup-id $HOME/.config/picom/toggle_picom.sh reload
+# exec --no-startup-id $HOME/.config/picom/toggle_picom.sh reload
 
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 ## exec --no-startup-id nm-applet
-
 
