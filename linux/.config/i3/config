@@ -255,3 +255,6 @@ exec --no-startup-id light-locker --lock-on-lid
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 ## exec --no-startup-id nm-applet
 
+# start fcitx (Input Method for Japanese Input)
+exec --no-startup-id fcitx5 -d
+
