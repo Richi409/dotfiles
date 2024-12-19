@@ -17,7 +17,7 @@ vim.keymap.set("n", "<space>st", function ()
     -- job_id = vim.bo.channel
 end)
 
-vim.keymap.set("t", "<space><ESC>", "<C-\\><C-n>")
+vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>")
 
 --[[
 vim.keymap.set("n", "<space>example", function ()
