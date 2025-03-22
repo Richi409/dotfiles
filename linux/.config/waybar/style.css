@@ -1,0 +1,381 @@
+
+/*
+@keyframes blink-warning {
+    70% {
+        color: @light;
+    }
+
+    to {
+        color: @light;
+        background-color: @warning;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @light;
+    }
+
+    to {
+        color: @light;
+        background-color: @critical;
+    }
+}
+*/
+
+
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+/* COLORS */
+
+/* Nord */
+@define-color bg #1A1B26;
+@define-color fg #C0CAF5;
+
+@define-color black #15161E;
+@define-color red #F7768E;
+@define-color green #9ECE6A;
+@define-color yellow #E0AF68;
+@define-color blue #7AA2F7;
+@define-color magenta #BB9AF7;
+@define-color cyan #7DCFFF;
+@define-color white #A9B1D6;
+
+@define-color bright_white #C0CAF5;
+@define-color bright_black #414868;
+
+/*
+@define-color mode #414868;
+@define-color workspacesfocused #4C566A;
+@define-color tray @workspacesfocused;
+@define-color sound #EBCB8B;
+@define-color network #5D7096;
+@define-color memory #546484;
+@define-color cpu #596A8D;
+@define-color temp #4D5C78;
+@define-color layout #5e81ac;
+@define-color battery #88c0d0;
+@define-color date #434C5E;
+@define-color time #434C5E;
+@define-color backlight #434C5E;
+@define-color nord_bg #434C5E;
+@define-color nord_bg_blue #546484;
+@define-color nord_light #D8DEE9;
+@define-color nord_light_font #D8DEE9;
+@define-color nord_dark_font #434C5E;
+*/
+
+/* Reset all styles */
+* {
+    /* border: 1px solid red; */
+    /* border: none; */
+    /* border-radius: 5px; */
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
+}
+
+
+/* The whole bar */
+#waybar {
+    background: @bg;
+    color: @fg;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+    font-weight: bold;
+    /* border-bottom: 3px solid @blue; */
+    /* border-radius: 0px 0px 10px 10px;*/
+}
+
+label.module {
+    border: 2px solid @blue;
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* groups */
+
+#hardware {
+    border: 2px solid @blue;
+    border-radius: 5px;
+}
+
+/* Each module */
+#clock {
+}
+
+#cpu {
+    border: none;
+}
+
+#custom-layout {
+}
+
+#memory {
+    border: none;
+}
+
+#mode {
+}
+
+#pulseaudio {
+}
+
+#temperature {
+}
+
+#custom-alsa {
+}
+
+#custom-pacman {
+}
+
+#custom-weather {
+}
+
+#custom-gpu {
+}
+
+#custom-power {
+    padding-right: 8px;
+}
+
+#tray {
+    border: 2px solid @blue;
+    border-radius: 5px;
+}
+
+#backlight {
+}
+
+#language {
+}
+
+#custom-cpugovernor {
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+}
+
+/* Each module that should blink */
+#mode {
+}
+
+#memory {
+}
+
+#temperature {
+}
+
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical {
+    color: @red;
+}
+
+/* Each critical that should blink */
+#mode,
+#memory.critical,
+#temperature.critical {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+/* Each warning */
+#memory.warning,
+#cpu.warning,
+#temperature.warning {
+    background: @yellow;
+    color: @bg;
+}
+
+/* Each warning that should blink */
+/*
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+*/
+
+/* And now modules themselves in their respective order */
+
+#mode { /* Shown current Sway mode (resize etc.) */
+    color: @fg;
+    background: @white;
+}
+
+/* Workspaces stuff */
+
+#workspaces {
+ /*   color: #D8DEE9;
+    margin-right: 10px;*/
+    border: 2px solid @blue;
+    border-radius: 5px;
+    padding: 1px;
+}
+
+#workspaces button {
+    font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
+    padding: 0;
+    /*color: #999;*/
+    opacity: 0.3;
+    background: none;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+
+#workspaces button.focused {
+    /* background: @workspacesfocused;*/
+    background-color: @blue;
+    color: @bg;
+    opacity: 1;
+    /* border: 2px solid @blue;*/
+    border-color: @blue;
+    /* padding: 0 0.4em; */
+}
+
+#workspaces button.visible:not(.focused) {
+    opacity: 1;
+    /* border: 2px solid @blue;*/
+    border-color: @blue;
+    color: @blue;
+}
+
+#workspaces button.urgent {
+    /*
+    border-color: @red; 
+    color: @red;
+    */
+    background-color: @red;
+    color: @bg;
+    opacity: 1;
+}
+
+#window {
+    margin-right: 40px;
+    margin-left: 40px;
+    font-weight: normal;
+}
+#bluetooth {
+    background: @blue;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+#idle_inhibitor {
+    border-color: @yellow;
+    color: @yellow;
+    padding: 0 1em;
+}
+
+#idle_inhibitor.activated {
+    border-color: @green;
+    color: @green;
+    padding: 0 1em;
+}
+
+#custom-alsa {
+    background: none;
+}
+
+#network {
+    background: none;
+}
+
+#network.disconnected {
+    border-color: @red;
+    color: @red;
+}
+
+#memory {
+    background: none;
+}
+
+#cpu {
+    background: none;
+    color: @fg;
+}
+#cpu.critical {
+    color: @nord_dark_font;
+}
+#language {
+    padding: 0 0.4em;
+}
+#temperature {
+    border: none;
+}
+
+#temperature.critical {
+    background:  @critical;
+}
+#custom-layout {
+    background: @layout;
+}
+
+#backlight {
+    background: @backlight;
+}
+
+#clock {
+    background: @nord_bg_blue;
+    color: #D8DEE9;
+}
+#clock.date {
+    background: @date;
+}
+
+#clock.time {
+    background: @mode;
+}
+
+#pulseaudio { /* Unsused but kept for those who needs it */
+}
+
+#pulseaudio.muted {
+    border-color: @red;
+    color: @red;
+    /* No styles */
+}
+#pulseaudio.source-muted {
+    background: #D08770;
+    color: #D8DEE9;
+    /* No styles */
+}
+
+#battery {
+    /* background: @battery; */
+    color: @blue;
+    border-color: @blue;
+}
+
+#battery.warning {
+    color: @yellow;
+    border-color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+    border-color: @red;
+}
+
+#battery.charging,
+#battery.warning.charging,
+#battery.critical.charging {
+    color: @green;
+    border-color: @green;
+}
+
+/*
+#battery.critical.discharging {
+}
+*/
+
+/*
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+*/
