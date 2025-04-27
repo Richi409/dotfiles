@@ -1,1 +1,18 @@
-show=drun
+mode=drun
+term=alacritty
+layer=overlay
+allow_images=true
+insensitive=true
+
+# filter_rate=50
+# allow-markup=true
+# # Theme# Also check ./style.css
+# colors=colors
+# image_size=85
+# # Position
+# width=1600
+# height=810
+# halign=fill
+# orientation=vertical
+# content_halign=fill
+# # This hide executable actionsno_actions=true
