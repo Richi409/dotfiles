@@ -67,9 +67,6 @@ exec swayidle -w \
 # Lock screen when the laptop is being closed
 bindswitch --reload --locked lid:on exec $lock
 
-# start lock screen
-bindsym $alt+l exec $lock
-
 
 ### Input configuration
 #
@@ -101,14 +98,8 @@ input "type:touchpad" {
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
-
     # Kill focused window
     bindsym $mod+Shift+q kill
-
-    # Start your launcher
-    bindsym $alt+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
