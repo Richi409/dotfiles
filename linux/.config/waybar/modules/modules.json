@@ -162,6 +162,8 @@
     "network": {
         // ,
 
+        "on-click": "nm-connection-editor",
+
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "family": "ipv4",
         "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],

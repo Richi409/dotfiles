@@ -15,7 +15,7 @@
     "modules-left": [
         "custom/power",
         "clock",
-        "power-profiles-daemon",
+        // "power-profiles-daemon",
         "idle_inhibitor",
         // "custom/audio_idle_inhibitor",
         "sway/mode",
@@ -27,8 +27,8 @@
         "sway/workspaces",
     ],
     "modules-right": [
-        "group/system-tray",
-        // "tray",
+        // "group/system-tray",
+        "tray",
         // "mpd",
         "pulseaudio",
         "group/indicators",

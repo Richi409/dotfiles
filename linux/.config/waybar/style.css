@@ -91,6 +91,10 @@
     font-weight: bold;
 }
 
+tooltip {
+    border: 2px solid @blue;
+}
+
 label.module {
     border: 2px solid @blue;
     border-radius: 6px;
