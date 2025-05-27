@@ -65,7 +65,8 @@ exec swayidle -w \
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 # Lock screen when the laptop is being closed
-bindswitch --reload --locked lid:on exec $lock
+# bindswitch --reload --locked lid:on exec $lock
+bindswitch --reload --locked lid:on exec systemctl suspend
 
 
 ### Input configuration
@@ -245,7 +246,20 @@ bindsym $mod+r mode "resize"
 # }
 
 bar {
-    swaybar_command waybar
+    id 0
+    swaybar_command /home/richard/.config/waybar/start-waybar.sh 
+    # position top
+    # mode dock
+    # modifier Mod4
 }
+# swaymsg 'bar 0 mode dock', 'output "*" background /usr/local/share/backgrounds/japan.png fill'
+
+# bar {
+#     id 1
+#     swaybar_command ""
+#     position bottom
+#     mode invisible
+#     modifier none
+# }
 
 include /etc/sway/config.d/*
