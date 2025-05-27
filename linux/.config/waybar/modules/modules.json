@@ -4,35 +4,40 @@
     //     "disable-scroll": true,
     //     "all-outputs": false, //true,
     //     "warp-on-scroll": false,
-    //     "format": "{icon}",//"{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "5",
-    //         "6": "6",
-    //         "7": "7",
-    //         "8": "8",
-    //         "9": "9",
-    //         "10": ""
-    //         // "urgent": "",
-    //         // "focused": "",
-    //         // "default": ""
-    //     },
-    //     "sort-by-number": true,
-    //     "persistent-workspaces": {
-    //         "1": ["eDP-1"],
-    //         "2": ["eDP-1"],
-    //         "3": ["eDP-1"],
-    //         "4": ["eDP-1"],
-    //         "5": ["eDP-1"],
-    //         "6": ["DP-1"],
-    //         "7": ["DP-1"],
-    //         "8": ["DP-1"],
-    //         "9": ["DP-1"],
-    //         "10": ["DP-1"]
+    //     "format": "{index}{windows}",//"{name}: {icon}",
+    //     "window-rewrite-default": "{index}",
+    //     "window-format": "{name}",
+    //     "window-rewrite": {
+    //         "class<firefox>": "󰈹",
     //     }
+    //     // "format-icons": {
+    //     //     "1": "",
+    //     //     "2": "",
+    //     //     "3": "",
+    //     //     "4": "",
+    //     //     "5": "5",
+    //     //     "6": "6",
+    //     //     "7": "7",
+    //     //     "8": "8",
+    //     //     "9": "9",
+    //     //     "10": ""
+    //     //     // "urgent": "",
+    //     //     // "focused": "",
+    //     //     // "default": ""
+    //     // },
+    //     // "sort-by-number": true,
+    //     // "persistent-workspaces": {
+    //     //     "1": ["eDP-1"],
+    //     //     "2": ["eDP-1"],
+    //     //     "3": ["eDP-1"],
+    //     //     "4": ["eDP-1"],
+    //     //     "5": ["eDP-1"],
+    //     //     "6": ["DP-1"],
+    //     //     "7": ["DP-1"],
+    //     //     "8": ["DP-1"],
+    //     //     "9": ["DP-1"],
+    //     //     "10": ["DP-1"]
+    //     // }
     // },
     "keyboard-state": {
         "numlock": true,
@@ -82,8 +87,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": " ",
-            "deactivated": " "
+            "activated": "",
+            "deactivated": ""
         }
     },
     "tray": {
@@ -114,8 +119,12 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        // "format": "{percent}% {icon}",
+        "format": "{icon}",
+        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+
+        "tootltip": true,
+        "tooltip-format": "{percent}% {icon}"
     },
     "battery": {
         "states": {
@@ -136,6 +145,9 @@
     "battery#bat2": {
         "bat": "BAT2"
     },
+    "battery#hidpp_battery_1": {
+        "bat": "hidpp_battery_1"
+    },
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
@@ -148,14 +160,24 @@
       }
     },
     "network": {
+        // ,
+
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid}  ", //"{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈀 ",
-        "tooltip-format": "{ifname} via {gwaddr} 󱇢 ",
-        "format-linked": "{ifname} (No IP) ⚠",
+        "family": "ipv4",
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+
+        "format-wifi": "{icon}", //"{essid} ({signalStrength}%) ",
+        "tooltip-format-wifi": "{essid}\n{ifname}\n{ipaddr}/{cidr}\nvia {gwaddr} 󱇢 ",
+
+        "format-ethernet": "󰈀 ",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nvia {gwaddr} 󱇢 ",
         // "format-disconnected": "Disconnected ⚠",
-        "format-disconnected": " 󱚼 ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "󱚼 ",
+        "format-linked": "{ifname} (No IP) ⚠",
+
+        "tooltip-format": "{ifname} via {gwaddr} 󱇢 "// ,
+
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -191,13 +213,34 @@
     "custom/power": {
         "format" : "⏻",
 		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+        // "tooltip-format": "run wlogout",
+
+        "on-click": "wlogout"
+
+		// "menu": "on-click",
+		// "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		// "menu-actions": {
+		// 	"shutdown": "shutdown",
+		// 	"reboot": "reboot",
+		// 	"suspend": "systemctl suspend",
+		// 	"hibernate": "systemctl hibernate"
+		// }
+    },
+    // "custom/audio_idle_inhibitor": {
+	// 	"format": "{icon}",
+	// 	"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+	// 	"exec-if": "which sway-audio-idle-inhibit",
+	// 	"return-type": "json",
+	// 	"format-icons": {
+	// 		"output": " ",
+	// 		"input": "",
+	// 		"output-input": "  ",
+	// 		"none": ""
+	// 	}
+	// }
+
+    "custom/tray-wrapper": {
+        "format": "",
+        "tooltip-format": "System tray"
     }
 }

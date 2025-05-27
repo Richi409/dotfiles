@@ -79,20 +79,25 @@
 
 /* The whole bar */
 #waybar {
+    /*
+    background: none;
+    border-bottom: 3px solid @blue;
+    border-radius: 0px 0px 10px 10px;
+    */
     background: @bg;
     color: @fg;
     font-family: "JetBrainsMono Nerd Font";
     font-size: 12px;
     font-weight: bold;
-    /* border-bottom: 3px solid @blue; */
-    /* border-radius: 0px 0px 10px 10px;*/
 }
 
 label.module {
     border: 2px solid @blue;
-    border-radius: 5px;
+    border-radius: 6px;
     padding-left: 4px;
     padding-right: 4px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 /* groups */
@@ -101,6 +106,13 @@ label.module {
     border: 2px solid @blue;
     border-radius: 5px;
 }
+
+#indicators {
+    border: 2px solid @blue;
+    border-radius: 5px;
+}
+
+/* groups end */
 
 /* Each module */
 #clock {
@@ -143,11 +155,14 @@ label.module {
 }
 
 #tray {
+    /*
     border: 2px solid @blue;
-    border-radius: 5px;
+    */
+    border-radius: 6px;
 }
 
 #backlight {
+    border: none;
 }
 
 #language {
@@ -203,7 +218,7 @@ label.module {
 
 #mode { /* Shown current Sway mode (resize etc.) */
     color: @fg;
-    background: @white;
+    background: none;
 }
 
 /* Workspaces stuff */
@@ -212,19 +227,31 @@ label.module {
  /*   color: #D8DEE9;
     margin-right: 10px;*/
     border: 2px solid @blue;
-    border-radius: 5px;
-    padding: 1px;
+    border-radius: 6px;
 }
 
+
 #workspaces button {
-    font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
+    font-weight: 900; /* Somewhy the bar-wide setting is ignored*/
     padding: 0;
+    margin: 1px;
     /*color: #999;*/
     opacity: 0.3;
     background: none;
-    font-size: 1em;
-    border-radius: 4px;
-    border: 2px solid transparent;
+    font-size: .7em;
+    border-radius: 3px;
+    /* border: 2px solid transparent;*/
+    border: none;
+    min-width: 20px;
+}
+
+
+#workspaces button:first-child {
+    margin-left: 1px;
+}
+
+#workspaces button:last-child {
+    margin-right: 1px;
 }
 
 #workspaces button.focused {
@@ -232,16 +259,17 @@ label.module {
     background-color: @blue;
     color: @bg;
     opacity: 1;
-    /* border: 2px solid @blue;*/
-    border-color: @blue;
+    /* border: 2px solid @blue; */
+    /* border-color: @blue; */
     /* padding: 0 0.4em; */
 }
 
 #workspaces button.visible:not(.focused) {
-    opacity: 1;
+    opacity: .6;
     /* border: 2px solid @blue;*/
-    border-color: @blue;
-    color: @blue;
+    /* border-color: @blue; */
+    color: @bg;
+    background-color: @blue;
 }
 
 #workspaces button.urgent {
@@ -268,13 +296,13 @@ label.module {
 #idle_inhibitor {
     border-color: @yellow;
     color: @yellow;
-    padding: 0 1em;
+    padding-right: 11px;
 }
 
 #idle_inhibitor.activated {
     border-color: @green;
     color: @green;
-    padding: 0 1em;
+    padding-right: 11px;
 }
 
 #custom-alsa {
@@ -282,12 +310,25 @@ label.module {
 }
 
 #network {
-    background: none;
+    border: none;
+    /*background: none;*/
+}
+
+#network.disabled {
 }
 
 #network.disconnected {
-    border-color: @red;
+    /* border-color: @red;*/
     color: @red;
+}
+
+#network.linked {
+}
+
+#network.ethernet {
+}
+
+#network.wifi {
 }
 
 #memory {
