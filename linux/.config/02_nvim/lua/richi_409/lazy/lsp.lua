@@ -41,6 +41,7 @@ return {
                     }
                 end,
 
+
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
@@ -52,6 +53,25 @@ return {
                                 }
                             }
                         }
+                    }
+                end,
+
+                ["rust_analyzer"] = function()
+                    require("lspconfig").rust_analyzer.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            ["rust-analyzer"] = {
+                                procMacro = {
+                                    ignored = {
+                                        leptos_macro = {
+                                            -- optional: --
+                                            -- "component",
+                                            "server",
+                                        },
+                                    },
+                                },
+                            },
+                        },
                     }
                 end,
             }
@@ -91,22 +111,5 @@ return {
             },
         })
 
-         -- require('lspconfig').rust_analyzer.setup {
-         --   -- Other Configs ...
-         --   settings = {
-         --     ["rust-analyzer"] = {
-         --       -- Other Settings ...
-         --       procMacro = {
-         --         ignored = {
-         --             leptos_macro = {
-         --                 -- optional: --
-         --                 -- "component",
-         --                 "server",
-         --             },
-         --         },
-         --       },
-         --     },
-         --   }
-         -- }
     end
 }
