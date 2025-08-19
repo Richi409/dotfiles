@@ -5,7 +5,7 @@
     //     "all-outputs": false, //true,
     //     "warp-on-scroll": false,
     //     "format": "{index}{windows}",//"{name}: {icon}",
-    //     "window-rewrite-default": "{index}",
+    //     "window-rewrite-default": "",
     //     "window-format": "{name}",
     //     "window-rewrite": {
     //         "class<firefox>": "󰈹",
@@ -100,7 +100,27 @@
         "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M:%S | %d-%m-%Y}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%Y-%m-%d}",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "cpu": {
         "format": "{usage}% ",
@@ -121,7 +141,7 @@
         // "device": "acpi_video1",
         // "format": "{percent}% {icon}",
         "format": "{icon}",
-        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
 
         "tootltip": true,
         "tooltip-format": "{percent}% {icon}"
@@ -140,7 +160,7 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -155,8 +175,8 @@
       "format-icons": {
         "default": "",
         "performance": "",
-        "balanced": " ",
-        "power-saver": " "
+        "balanced": "",
+        "power-saver": ""
       }
     },
     "network": {
@@ -171,20 +191,20 @@
         "format-wifi": "{icon}", //"{essid} ({signalStrength}%) ",
         "tooltip-format-wifi": "{essid}\n{ifname}\n{ipaddr}/{cidr}\nvia {gwaddr} 󱇢 ",
 
-        "format-ethernet": "󰈀 ",
-        "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nvia {gwaddr} 󱇢 ",
+        "format-ethernet": "󰈀",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nvia {gwaddr} 󱇢",
         // "format-disconnected": "Disconnected ⚠",
-        "format-disconnected": "󱚼 ",
+        "format-disconnected": "󱚼",
         "format-linked": "{ifname} (No IP) ⚠",
 
-        "tooltip-format": "{ifname} via {gwaddr} 󱇢 "// ,
+        "tooltip-format": "{ifname} via {gwaddr} 󱇢"// ,
 
         // "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": " {volume}% ",

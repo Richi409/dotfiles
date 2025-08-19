@@ -86,7 +86,7 @@
     */
     background: @bg;
     color: @fg;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono Nerd Font Propo";
     font-size: 12px;
     font-weight: bold;
 }
@@ -155,7 +155,6 @@ label.module {
 }
 
 #custom-power {
-    padding-right: 8px;
 }
 
 #tray {
@@ -300,13 +299,11 @@ label.module {
 #idle_inhibitor {
     border-color: @yellow;
     color: @yellow;
-    padding-right: 11px;
 }
 
 #idle_inhibitor.activated {
     border-color: @green;
     color: @green;
-    padding-right: 11px;
 }
 
 #custom-alsa {
