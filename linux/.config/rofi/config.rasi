@@ -1,9 +1,9 @@
 configuration {
-    terminal: "/usr/bin/alacritty";
+    // terminal: "/usr/bin/alacritty";
     location: 2;
 
-    modi: ["drun", "window", "run"];
-    icon-theme: "Papirus-Dark";
+    modi: ["drun", "window", "run", "combi"];
+    icon-theme: "Tokyo Night-SE";
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
