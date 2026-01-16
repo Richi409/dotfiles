@@ -56,8 +56,9 @@ output "*" bg /usr/local/share/backgrounds/japan.png fill
 set $lock 'gtklock -d'
 
 exec swayidle -w \
-         timeout 300 $lock \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 180 $lock \
+         timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 900 'systemctl suspend-then-hibernate' \
          before-sleep $lock
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -226,6 +227,23 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+mode "present" {
+    # command starts mirroring
+    bindsym m mode "default"; exec wl-present mirror
+    # these commands modify an already running mirroring window
+    bindsym o mode "default"; exec wl-present set-output
+    bindsym r mode "default"; exec wl-present set-region
+    bindsym Shift+r mode "default"; exec wl-present unset-region
+    bindsym s mode "default"; exec wl-present set-scaling
+    bindsym f mode "default"; exec wl-present toggle-freeze
+    bindsym c mode "default"; exec wl-present custom
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+p mode "present"
 
 #
 # Status Bar:
