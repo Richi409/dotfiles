@@ -1,0 +1,68 @@
+// -*- mode: jsonc -*-
+{
+    "id": "0",
+    "ipc": true,
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+
+    //Load Modules
+    "include": ["~/.config/waybar/modules/modules.json"],
+
+    "modules-left": [
+        "custom/power",
+        "clock"
+    ],
+    "modules-center": [
+        "niri/workspaces",
+    ],
+    "modules-right": [
+        // "group/system-tray",
+        "tray",
+        // "mpd",
+        "pulseaudio",
+        "group/indicators",
+        // "network",
+        // "backlight",
+        // "cpu",
+        // "memory",
+        "group/hardware",
+        // "keyboard-state",
+        "battery" //,
+        // "battery#hidpp_battery_1"
+        // "battery#bat2",
+    ],
+
+    // Groups
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature",
+        ]
+    },
+
+    "group/system-tray": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+		    "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/tray-wrapper",
+            "tray",
+        ],
+    },
+
+    "group/indicators": {
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "backlight"
+        ]
+    },
+}
