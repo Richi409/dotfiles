@@ -16,7 +16,7 @@
         "custom/power",
         "clock",
         // "power-profiles-daemon",
-        "idle_inhibitor",
+        // "idle_inhibitor",
         // "custom/audio_idle_inhibitor",
         "sway/mode",
         "sway/scratchpad" // ,
