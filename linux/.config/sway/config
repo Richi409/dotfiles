@@ -141,12 +141,32 @@
       # mode  2880x1800@60Hz
       mode  2880x1800@120Hz
       pos 4480 0
+      # pos 0 0
       transform normal
       scale 1.5
       scale_filter nearest
       adaptive_sync on
       dpms on
   }
+
+  # output "HP Inc. HP Z24n G2 6CM9282380" {
+  #     mode 1920x1200@74.939003Hz
+  #     transform normal
+  #     pos 3840 0
+  #     scale 1.0
+  #     adaptive_sync on
+  #     dpms on
+  # }
+
+  # output "HP Inc. HP Z24n G2 6CM81823PL" {
+  #     mode 1920x1200@74.939003Hz
+  #     transform normal
+  #     pos 1920 0
+  #     scale 1.0
+  #     adaptive_sync on
+  #     dpms on
+  # }
+
 
 ############################################################################
 # Configuration for special Keys
